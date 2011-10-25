@@ -1,0 +1,31 @@
+<script type="text/javascript" src="http://localhost/crayon/wp-content/plugins/crayon-syntax-highlighter/js/jquery.popup.js"></script>
+<script type="text/javascript" src="http://localhost/crayon/wp-content/plugins/crayon-syntax-highlighter/js/jquery-1.5.min.js"></script>
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>-->
+<a href="#" class="example1demo" onclick="return false;">open popup</a>
+ 
+<script type="text/javascript">
+
+$(window).ready(function() {
+	// Bind the popup, multiple calls allowed
+	// '.example1demo' is also fine
+	settings = popupWindow($('.example1demo'), { 
+		height:screen.height - 200, 
+		width:screen.width - 100,
+		top:75,
+		left:50,
+		windowURL:'http://www.google.com/',
+		data:'THIS IS COOL', // Data overrides URL
+	}, function() {
+		//alert('before');
+	}, function() {
+		//alert('after');
+	});
+	
+	// Redefine settings anywhere
+	settings.data = '<strong>THIS</strong> IS COOLER';
+	
+	// Unbind the popup for all calls
+	//popdownWindow('.example1demo');
+});
+
+</script>
