@@ -1,17 +1,24 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.popup.js"></script>
+
 <a href="#" class="example1demo" onclick="return false;">open popup</a>
  
 <script type="text/javascript">
 
 $(window).ready(function() {
 	// Bind the popup, multiple calls allowed
-	settings = popupWindow('.example1demo', { 
+	// '.example1demo' is also fine
+	settings = popupWindow($('.example1demo'), { 
 		height:screen.height - 200, 
 		width:screen.width - 100,
 		top:75,
 		left:50,
 		windowURL:'http://www.google.com/',
-		data:'THIS IS COOL' // Data overrides URL
+		data:'THIS IS COOL', // Data overrides URL
+	}, function() {
+		//alert('before');
+	}, function() {
+		//alert('after');
 	});
 	
 	// Redefine settings anywhere
